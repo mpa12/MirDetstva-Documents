@@ -39,10 +39,7 @@ class ActOfRenderingService
         $this->setDocumentMargins($section);
 
         $view = Yii::$app->getView();
-        $html = $view->render('@common/reports/act-of-rendering.php', [
-            'param1' => 'value1',
-            'param2' => 'value2',
-        ]);
+        $html = $view->render('@common/reports/act-of-rendering.php', ['model' => $this->model]);
         Html::addHtml($section, $html);
 
         return $phpWord;

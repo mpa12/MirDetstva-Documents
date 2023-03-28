@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\base\InvalidConfigException;
 
 /**
  * This is the model class for table "act_of_rendering".
@@ -13,6 +14,7 @@ use Yii;
  * @property string $from_date
  * @property string $customer
  * @property float $price
+ * @property string $fromDateText
  */
 class ActOfRendering extends \yii\db\ActiveRecord
 {
@@ -52,5 +54,16 @@ class ActOfRendering extends \yii\db\ActiveRecord
             'customer' => 'Заказчик',
             'price' => 'Цена',
         ];
+    }
+
+    /**
+     * Получение даты в виде текста
+     *
+     * @return string
+     * @throws InvalidConfigException
+     */
+    public function getFromDateText(): string
+    {
+        return Yii::$app->formatter->asDate($this->from_date, 'd MMMM yyyy г.');
     }
 }
