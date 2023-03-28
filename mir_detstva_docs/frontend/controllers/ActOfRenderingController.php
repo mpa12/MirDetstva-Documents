@@ -3,10 +3,14 @@
 namespace frontend\controllers;
 
 use common\models\ActOfRendering;
+use common\services\ActOfRenderingService;
 use frontend\models\ActOfRenderingSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\RangeNotSatisfiableHttpException;
+use yii\web\Response;
 
 /**
  * ActOfRenderingController implements the CRUD actions for ActOfRendering model.
@@ -63,7 +67,7 @@ class ActOfRenderingController extends Controller
     /**
      * Creates a new ActOfRendering model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -86,7 +90,7 @@ class ActOfRenderingController extends Controller
      * Updates an existing ActOfRendering model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
-     * @return string|\yii\web\Response
+     * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -106,7 +110,7 @@ class ActOfRenderingController extends Controller
      * Deletes an existing ActOfRendering model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
-     * @return \yii\web\Response
+     * @return Response
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -132,8 +136,14 @@ class ActOfRenderingController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    public function download(int $id)
+    /**
+     * @param int $id
+     * @return Response
+     * @throws RangeNotSatisfiableHttpException
+     */
+    public function actionDownload(int $id): Response
     {
-
+        $service = new ActOfRenderingService();
+        return Yii::$app->response->sendContentAsFile($service->handle($id), 'report.docx');
     }
 }
