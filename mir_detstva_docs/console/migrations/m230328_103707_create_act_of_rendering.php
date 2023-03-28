@@ -14,7 +14,7 @@ class m230328_103707_create_act_of_rendering extends Migration
     {
         $this->createTable('act_of_rendering', [
             'id' => $this->primaryKey(),
-            'created_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'number' => $this->integer()->notNull(),
             'from_date' => $this->timestamp()->notNull(),
             'customer' => $this->string()->notNull(),

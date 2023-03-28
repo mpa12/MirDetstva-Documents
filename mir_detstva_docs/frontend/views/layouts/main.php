@@ -28,14 +28,15 @@ AppAsset::register($this);
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Документооборот «Мир детства»',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Главная страница', 'url' => ['/site/index']],
+        ['label' => 'Акты', 'url' => ['/act-of-rendering/index']],
     ];
 
     echo Nav::widget([
@@ -58,8 +59,8 @@ AppAsset::register($this);
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-        <p class="float-end"><?= Yii::powered() ?></p>
+        <p class="float-start">&copy; Документооборот «Мир детства» <?= date('Y') ?></p>
+        <p class="float-end">Powered by <?= Html::a('@pigolitsyn_m', 'https://vk.com/pigolitsyn_m', ['target' => '_blank']) ?></p>
     </div>
 </footer>
 

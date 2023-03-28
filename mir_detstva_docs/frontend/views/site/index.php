@@ -2,14 +2,17 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+use yii\helpers\Url;
+
+$this->title = 'Документооборот «Мир детства»';
+
 ?>
 <div class="site-index">
     <div class="p-5 mb-4 bg-transparent rounded-3">
         <div class="container-fluid py-5 text-center">
-            <h1 class="display-4">Congratulations!</h1>
-            <p class="fs-5 fw-light">You have successfully created your Yii-powered application.</p>
-            <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+            <h1 class="display-4">Добро пожаловать!</h1>
+            <p class="fs-5 fw-light">Вы зашли в систему документооборота «Мир детства».</p>
+            <p><a class="btn btn-lg btn-success" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать акт</a></p>
         </div>
     </div>
 
@@ -17,34 +20,63 @@ $this->title = 'My Yii Application';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Акты об оказании услуг</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Акт об оказании услуг является необходимым для учета финансовых операций, а также
+                    для налоговой отчетности. Он позволяет контролировать выполнение услуг, определять объемы оказанных
+                    услуг, а также зафиксировать суммы, подлежащие оплате.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать акт &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Расходные кассовые ордеры</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Расходные кассовые ордера предназначены для учета денежных расходов организации через кассу и
+                    позволяют контролировать расходы и зафиксировать факт использования денежных средств. Этот
+                    документ необходим для обеспечения правильного учета финансовых операций и предотвращения
+                    несанкционированных расходов.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Создать расходный кассовый ордер &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Счета на оплату</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Счет на оплату - это документ, выставляемый продавцом для покупателя, который содержит информацию о
+                    товарах или услугах, их стоимости и способах оплаты. Он является необходимым для учета финансовых
+                    операций и контроля за платежами между продавцом и покупателем.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать счет на оплату &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Товарные накладные</h2>
+
+                <p>Товарная накладная - это документ, который содержит информацию о товарах, переданных от одного лица к
+                    другому. Он необходим для контроля за передачей товаров и служит основанием для бухгалтерских
+                    проводок в организации. Товарные накладные также используются для учета складских запасов и контроля
+                    за оборотом товаров в организации. </p>
+
+                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать товарную накладную &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Доверенности</h2>
+
+                <p>Доверенность - это документ, который выдается одним лицом другому лицу, чтобы дать ему право
+                    действовать от своего имени в определенных ситуациях. Она используется для предоставления
+                    полномочий на совершение различных действий, например, на подписание документов, получение
+                    денежных средств, осуществление сделок и т.д. Доверенность является необходимой для установления
+                    правовых отношений между участниками сделки и защиты интересов сторон.</p>
+
+                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать доверенность &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Приходные кассовые ордеры</h2>
+
+                <p>Приходный кассовый ордер - это документ, который фиксирует приход денежных средств в кассу
+                    организации. Он необходим для учета денежных операций и контроля за движением денежных средств в
+                    организации. Приходные кассовые ордера также служат основанием для бухгалтерских проводок и могут
+                    быть использованы при проверке финансовой деятельности организации.</p>
+
+                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать приходны кассовый ордер &raquo;</a></p>
             </div>
         </div>
 

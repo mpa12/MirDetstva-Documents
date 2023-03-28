@@ -101,3 +101,8 @@ a.desc:after {
 {
     text-decoration: none;
 }
+
+/* Container styles */
+.container {
+    max-width: 90% !important;
+}

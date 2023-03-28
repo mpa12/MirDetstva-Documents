@@ -19,7 +19,7 @@ class ActOfRendering extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'act_of_rendering';
     }
@@ -27,10 +27,10 @@ class ActOfRendering extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            [['created_at', 'number', 'from_date', 'customer', 'price'], 'required'],
+            [['number', 'from_date', 'customer', 'price'], 'required'],
             [['created_at', 'from_date'], 'safe'],
             [['number'], 'default', 'value' => null],
             [['number'], 'integer'],
@@ -42,15 +42,15 @@ class ActOfRendering extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => 'ID',
             'created_at' => 'Created At',
-            'number' => 'Number',
-            'from_date' => 'From Date',
-            'customer' => 'Customer',
-            'price' => 'Price',
+            'number' => 'Номер акта',
+            'from_date' => 'Дата акта',
+            'customer' => 'Заказчик',
+            'price' => 'Цена',
         ];
     }
 }
