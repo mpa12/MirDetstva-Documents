@@ -36,7 +36,8 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Главная страница', 'url' => ['/site/index']],
-        ['label' => 'Акты', 'url' => ['/act-of-rendering/index']],
+        ['label' => 'Акты и счета', 'url' => ['/act-of-rendering/index']],
+        ['label' => 'Расходные кассовые ордера', 'url' => ['/account-cash-warrant/index']],
     ];
 
     echo Nav::widget([

@@ -29,14 +29,14 @@ $this->title = 'Документооборот «Мир детства»';
                 <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать акт &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Расходные кассовые ордеры</h2>
+                <h2>Расходные кассовые ордера</h2>
 
                 <p>Расходные кассовые ордера предназначены для учета денежных расходов организации через кассу и
                     позволяют контролировать расходы и зафиксировать факт использования денежных средств. Этот
                     документ необходим для обеспечения правильного учета финансовых операций и предотвращения
                     несанкционированных расходов.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Создать расходный кассовый ордер &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/account-cash-warrant/index']) ?>">Создать расходный кассовый ордер &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Счета на оплату</h2>
@@ -45,7 +45,7 @@ $this->title = 'Документооборот «Мир детства»';
                     товарах или услугах, их стоимости и способах оплаты. Он является необходимым для учета финансовых
                     операций и контроля за платежами между продавцом и покупателем.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать счет на оплату &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать счет на оплату &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Товарные накладные</h2>
