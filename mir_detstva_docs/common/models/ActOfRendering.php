@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\helpers\PriceTextHelper;
 use Yii;
 use yii\base\InvalidConfigException;
 
@@ -15,6 +16,8 @@ use yii\base\InvalidConfigException;
  * @property string $customer
  * @property float $price
  * @property string $fromDateText
+ * @property string $priceText
+ * @property string $priceAsText
  */
 class ActOfRendering extends \yii\db\ActiveRecord
 {
@@ -51,8 +54,10 @@ class ActOfRendering extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'number' => 'Номер акта',
             'from_date' => 'Дата акта',
+            'fromDateText' => 'Дата акта',
             'customer' => 'Заказчик',
             'price' => 'Цена',
+            'priceText' => 'Цена',
         ];
     }
 
@@ -65,5 +70,19 @@ class ActOfRendering extends \yii\db\ActiveRecord
     public function getFromDateText(): string
     {
         return Yii::$app->formatter->asDate($this->from_date, 'd MMMM yyyy г.');
+    }
+
+    public function getPriceText(): string
+    {
+        return number_format($this->price, 2, ',', ' ');
+    }
+
+    public function getPriceAsText(): string
+    {
+        $text = PriceTextHelper::num2str($this->price);
+
+        // Перевод в верхний регситр первой буквы
+        return mb_strtoupper(mb_substr($text, 0, 1, 'utf-8'), 'utf-8')
+            . mb_substr($text, 1, null, 'utf-8');
     }
 }
