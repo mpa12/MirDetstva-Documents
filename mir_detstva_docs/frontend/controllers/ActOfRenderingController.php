@@ -93,9 +93,10 @@ class ActOfRenderingController extends Controller
      * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
+        $model->from_date = explode(' ', $model->from_date)[0];
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -137,6 +138,8 @@ class ActOfRenderingController extends Controller
     }
 
     /**
+     * Скачивание акта
+     *
      * @param int $id
      * @return Response
      * @throws RangeNotSatisfiableHttpException

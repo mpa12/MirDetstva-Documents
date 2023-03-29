@@ -42,7 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '',
                 'value' => fn ($model) => \yii\bootstrap5\Html::a(
-                    'Скачать', ['/act-of-rendering/download', 'id' => $model->id]
+                    'Скачать акт', ['/act-of-rendering/download', 'id' => $model->id]
+                ),
+                'format' => 'html'
+            ],
+            [
+                'label' => '',
+                'value' => fn ($model) => \yii\bootstrap5\Html::a(
+                    'Скачать счет', ['/invoice-for-payment/download', 'id' => $model->id]
                 ),
                 'format' => 'html'
             ]

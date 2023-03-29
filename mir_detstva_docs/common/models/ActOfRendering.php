@@ -16,6 +16,7 @@ use yii\base\InvalidConfigException;
  * @property string $customer
  * @property float $price
  * @property string $fromDateText
+ * @property string $fromDateTextPlusFour
  * @property string $priceText
  * @property string $priceAsText
  */
@@ -84,5 +85,18 @@ class ActOfRendering extends \yii\db\ActiveRecord
         // Перевод в верхний регситр первой буквы
         return mb_strtoupper(mb_substr($text, 0, 1, 'utf-8'), 'utf-8')
             . mb_substr($text, 1, null, 'utf-8');
+    }
+
+
+    /**
+     * Получение даты в виде текста + 4 дня
+     *
+     * @return string
+     * @throws InvalidConfigException
+     */
+    public function getFromDateTextPlusFour(): string
+    {
+        $date = strtotime($this->from_date . ' +4 day');
+        return Yii::$app->formatter->asDate($date, 'd MMMM yyyy г.');
     }
 }
