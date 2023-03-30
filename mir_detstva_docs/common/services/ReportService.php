@@ -10,9 +10,14 @@ use PhpOffice\PhpWord\Shared\Converter;
 use PhpOffice\PhpWord\Shared\Html;
 use Yii;
 
-class ActOfRenderingService
+class ReportService
 {
-    public ?ActOfRendering $model = null;
+    public $model = null;
+
+    public function __construct(public string $modelClass, public string $renderPath)
+    {
+        //
+    }
 
     public function handle(int $id)
     {
@@ -39,7 +44,7 @@ class ActOfRenderingService
         $this->setDocumentMargins($section);
 
         $view = Yii::$app->getView();
-        $html = $view->render('@common/reports/act-of-rendering.php', ['model' => $this->model]);
+        $html = $view->render($this->renderPath, ['model' => $this->model]);
         Html::addHtml($section, $html);
 
         return $phpWord;
@@ -57,6 +62,6 @@ class ActOfRenderingService
 
     public function getModel(int $id): ?ActOfRendering
     {
-        return ActOfRendering::findOne($id);
+        return $this->modelClass::findOne($id);
     }
 }
