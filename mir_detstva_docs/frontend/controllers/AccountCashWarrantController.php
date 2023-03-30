@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use common\models\AccountCashWarrant;
 use common\models\ActOfRendering;
-use common\services\ReportService;
+use common\services\AccountCashWarrantService;
 use frontend\models\AccountCashWarrantSearch;
 use Yii;
 use yii\web\Controller;
@@ -147,7 +147,10 @@ class AccountCashWarrantController extends Controller
      */
     public function actionDownload(int $id): Response
     {
-        $service = new ReportService(AccountCashWarrant::class, '@common/reports/account-cash-warrant.php');
+        $service = new AccountCashWarrantService(
+            AccountCashWarrant::class,
+            'report-templates/account-cash-warrant.docx'
+        );
         return Yii::$app->response->sendContentAsFile($service->handle($id), 'report.docx');
     }
 }

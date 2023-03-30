@@ -2,7 +2,9 @@
 
 namespace common\models;
 
+use common\helpers\PriceTextHelper;
 use Yii;
+use yii\base\InvalidConfigException;
 
 /**
  * This is the model class for table "account_cash_warrant".
@@ -20,6 +22,11 @@ use Yii;
  * @property string $passport_code
  * @property float $credit
  * @property float $corresponding_account
+ * @property string $fromDateText
+ * @property string $fromDateAsText
+ * @property string $priceText
+ * @property string $priceAsText
+ * @property string $passportDate
  */
 class AccountCashWarrant extends \yii\db\ActiveRecord
 {
@@ -69,5 +76,46 @@ class AccountCashWarrant extends \yii\db\ActiveRecord
             'credit' => 'Кредит',
             'corresponding_account' => 'Корреспондирующий счет',
         ];
+    }
+
+    /**
+     * Получение даты
+     *
+     * @return string
+     * @throws InvalidConfigException
+     */
+    public function getFromDateText(): string
+    {
+        return Yii::$app->formatter->asDate($this->date_of_preparation, 'dd.MM.yyyy');
+    }
+
+    /**
+     * Получение даты в виде текста
+     *
+     * @return string
+     * @throws InvalidConfigException
+     */
+    public function getFromDateAsText(): string
+    {
+        return Yii::$app->formatter->asDate($this->date_of_preparation, 'd MMMM yyyy г.');
+    }
+
+    public function getPriceText(): string
+    {
+        return number_format($this->price, 2, ',', ' ');
+    }
+
+    public function getPriceAsText(): string
+    {
+        $text = PriceTextHelper::num2str($this->price);
+
+        // Перевод в верхний регситр первой буквы
+        return mb_strtoupper(mb_substr($text, 0, 1, 'utf-8'), 'utf-8')
+            . mb_substr($text, 1, null, 'utf-8');
+    }
+
+    public function getPassportDate(): ?string
+    {
+        return Yii::$app->formatter->asDate($this->passport_date, 'd MMMM yyyy года');
     }
 }
