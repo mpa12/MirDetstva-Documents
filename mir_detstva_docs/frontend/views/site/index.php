@@ -66,7 +66,7 @@ $this->title = 'Документооборот «Мир детства»';
                     денежных средств, осуществление сделок и т.д. Доверенность является необходимой для установления
                     правовых отношений между участниками сделки и защиты интересов сторон.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать доверенность &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/power-of-attorney/index']) ?>">Создать доверенность &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Приходные кассовые ордеры</h2>

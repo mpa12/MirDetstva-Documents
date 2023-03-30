@@ -39,6 +39,7 @@ AppAsset::register($this);
         ['label' => 'Акты и счета', 'url' => ['/act-of-rendering/index']],
         ['label' => 'Расходные кассовые ордера', 'url' => ['/account-cash-warrant/index']],
         ['label' => 'Товарные накладные', 'url' => ['/packing-list/index']],
+        ['label' => 'Доверенности', 'url' => ['/power-of-attorney/index']],
     ];
 
     echo Nav::widget([
