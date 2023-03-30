@@ -47,6 +47,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
+            [
+                'label' => '',
+                'value' => fn ($model) => \yii\bootstrap5\Html::a(
+                    'Скачать документ', ['/account-cash-warrant/download', 'id' => $model->id]
+                ),
+                'format' => 'html'
+            ],
         ],
     ]); ?>
 

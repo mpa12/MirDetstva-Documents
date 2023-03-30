@@ -2,19 +2,18 @@
 
 namespace common\services;
 
-use common\models\ActOfRendering;
 use PhpOffice\PhpWord\Element\Section;
-use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Exception\CopyFileException;
+use PhpOffice\PhpWord\Exception\CreateTemporaryFileException;
 use PhpOffice\PhpWord\Shared\Converter;
-use PhpOffice\PhpWord\Shared\Html;
-use Yii;
+use PhpOffice\PhpWord\TemplateProcessor;
+use yii\db\ActiveRecord;
 
 class ReportService
 {
-    public $model = null;
+    public ?ActiveRecord $model = null;
 
-    public function __construct(public string $modelClass, public string $renderPath)
+    public function __construct(public string $modelClass, public string $templatePath)
     {
         //
     }
@@ -27,30 +26,26 @@ class ReportService
 
     public function getDocument()
     {
-        $phpWord = $this->generatingDocument();
         $fileName = 'report.docx';
-        $objWriter = IOFactory::createWriter($phpWord);
-        $objWriter->save($fileName);
+
+        $phpWord = $this->generatingDocument();
+        $phpWord = $this->setValues($phpWord);
+
+        $phpWord->saveAs($fileName);
 
         return file_get_contents($fileName);
     }
 
-    public function generatingDocument(): PhpWord
+    /**
+     * @throws CopyFileException
+     * @throws CreateTemporaryFileException
+     */
+    public function generatingDocument(): TemplateProcessor
     {
-        $phpWord = new PhpWord();
-
-        $section = $phpWord->addSection();
-
-        $this->setDocumentMargins($section);
-
-        $view = Yii::$app->getView();
-        $html = $view->render($this->renderPath, ['model' => $this->model]);
-        Html::addHtml($section, $html);
-
-        return $phpWord;
+        return new TemplateProcessor($this->templatePath);
     }
 
-    public function setDocumentMargins(Section $section)
+    public function setDocumentMargins(Section $section): void
     {
         $sectionStyle = $section->getStyle();
 
@@ -60,8 +55,13 @@ class ReportService
         $sectionStyle->setMarginLeft(Converter::cmToTwip());
     }
 
-    public function getModel(int $id): ?ActOfRendering
+    public function getModel(int $id): ?ActiveRecord
     {
         return $this->modelClass::findOne($id);
+    }
+
+    public function setValues(TemplateProcessor $phpWord): TemplateProcessor
+    {
+        return $phpWord;
     }
 }

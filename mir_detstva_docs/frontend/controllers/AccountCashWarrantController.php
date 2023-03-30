@@ -3,10 +3,15 @@
 namespace frontend\controllers;
 
 use common\models\AccountCashWarrant;
+use common\models\ActOfRendering;
+use common\services\ReportService;
 use frontend\models\AccountCashWarrantSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\RangeNotSatisfiableHttpException;
+use yii\web\Response;
 
 /**
  * AccountCashWarrantController implements the CRUD actions for AccountCashWarrant model.
@@ -131,5 +136,18 @@ class AccountCashWarrantController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /**
+     * Скачивание расходного кассового ордера
+     *
+     * @param int $id
+     * @return Response
+     * @throws RangeNotSatisfiableHttpException
+     */
+    public function actionDownload(int $id): Response
+    {
+        $service = new ReportService(AccountCashWarrant::class, '@common/reports/account-cash-warrant.php');
+        return Yii::$app->response->sendContentAsFile($service->handle($id), 'report.docx');
     }
 }

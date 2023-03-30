@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\ActOfRendering;
+use common\services\ActOfRenderingService;
 use common\services\ReportService;
 use frontend\models\ActOfRenderingSearch;
 use Yii;
@@ -146,7 +147,10 @@ class ActOfRenderingController extends Controller
      */
     public function actionDownload(int $id): Response
     {
-        $service = new ReportService(ActOfRendering::class, '@common/reports/act-of-rendering.php');
+        $service = new ActOfRenderingService(
+            ActOfRendering::class,
+            'report-templates/act-of-rendering.docx'
+        );
         return Yii::$app->response->sendContentAsFile($service->handle($id), 'report.docx');
     }
 }

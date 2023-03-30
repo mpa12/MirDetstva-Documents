@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\ActOfRendering;
-use common\services\ReportService;
+use common\services\InvoiceForPaymentService;
 use Yii;
 use yii\web\Controller;
 use yii\web\RangeNotSatisfiableHttpException;
@@ -11,9 +11,8 @@ use yii\web\Response;
 
 class InvoiceForPaymentController extends Controller
 {
-
     /**
-     * Скачивание акта
+     * Скачивание счета
      *
      * @param int $id
      * @return Response
@@ -21,7 +20,10 @@ class InvoiceForPaymentController extends Controller
      */
     public function actionDownload(int $id): Response
     {
-        $service = new ReportService(ActOfRendering::class, '@common/reports/invoice-for-payment.php');
+        $service = new InvoiceForPaymentService(
+            ActOfRendering::class,
+            'report-templates/invoice-for-payment.docx'
+        );
         return Yii::$app->response->sendContentAsFile($service->handle($id), 'report.docx');
     }
 }
