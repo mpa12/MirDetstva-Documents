@@ -20,10 +20,12 @@ class m230329_073450_create_account_cash_warrant_table extends Migration
             'price' => $this->float()->notNull(),
             'customer' => $this->string()->notNull(),
             'passport_series' => $this->string(4)->notNull(),
-            'passport_id' => $this->string(6)->notNull(),
+            'passport_number' => $this->string(6)->notNull(),
             'passport_date' => $this->date()->notNull(),
             'passport_issued' => $this->string()->notNull(),
             'passport_code' => $this->string(7)->notNull(),
+            'credit' => $this->float()->notNull(),
+            'corresponding_account' => $this->float()->notNull(),
         ]);
     }
 
