@@ -55,7 +55,7 @@ $this->title = 'Документооборот «Мир детства»';
                     проводок в организации. Товарные накладные также используются для учета складских запасов и контроля
                     за оборотом товаров в организации. </p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать товарную накладную &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/packing-list/index']) ?>">Создать товарную накладную &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Доверенности</h2>
