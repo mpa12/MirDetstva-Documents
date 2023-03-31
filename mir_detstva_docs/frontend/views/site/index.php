@@ -12,7 +12,6 @@ $this->title = 'Документооборот «Мир детства»';
         <div class="container-fluid py-5 text-center">
             <h1 class="display-4">Добро пожаловать!</h1>
             <p class="fs-5 fw-light">Вы зашли в систему документооборота «Мир детства».</p>
-            <p><a class="btn btn-lg btn-success" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать акт</a></p>
         </div>
     </div>
 
@@ -26,7 +25,7 @@ $this->title = 'Документооборот «Мир детства»';
                     для налоговой отчетности. Он позволяет контролировать выполнение услуг, определять объемы оказанных
                     услуг, а также зафиксировать суммы, подлежащие оплате.</p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать акт &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Смотреть акты &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Расходные кассовые ордера</h2>
@@ -36,7 +35,7 @@ $this->title = 'Документооборот «Мир детства»';
                     документ необходим для обеспечения правильного учета финансовых операций и предотвращения
                     несанкционированных расходов.</p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/account-cash-warrant/index']) ?>">Создать расходный кассовый ордер &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/account-cash-warrant/index']) ?>">Смотреть расходные кассовые ордера &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Счета на оплату</h2>
@@ -45,7 +44,7 @@ $this->title = 'Документооборот «Мир детства»';
                     товарах или услугах, их стоимости и способах оплаты. Он является необходимым для учета финансовых
                     операций и контроля за платежами между продавцом и покупателем.</p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Создать счет на оплату &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/act-of-rendering/index']) ?>">Смотреть счета на оплату &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Товарные накладные</h2>
@@ -55,7 +54,7 @@ $this->title = 'Документооборот «Мир детства»';
                     проводок в организации. Товарные накладные также используются для учета складских запасов и контроля
                     за оборотом товаров в организации. </p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/packing-list/index']) ?>">Создать товарную накладную &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/packing-list/index']) ?>">Смотреть товарные накладные &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Доверенности</h2>
@@ -66,17 +65,17 @@ $this->title = 'Документооборот «Мир детства»';
                     денежных средств, осуществление сделок и т.д. Доверенность является необходимой для установления
                     правовых отношений между участниками сделки и защиты интересов сторон.</p>
 
-                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/power-of-attorney/index']) ?>">Создать доверенность &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/power-of-attorney/index']) ?>">Смотреть доверенности &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Приходные кассовые ордеры</h2>
+                <h2>Приходные кассовые ордера</h2>
 
                 <p>Приходный кассовый ордер - это документ, который фиксирует приход денежных средств в кассу
                     организации. Он необходим для учета денежных операций и контроля за движением денежных средств в
                     организации. Приходные кассовые ордера также служат основанием для бухгалтерских проводок и могут
                     быть использованы при проверке финансовой деятельности организации.</p>
 
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Создать приходны кассовый ордер &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="<?= Url::to(['/incoming-cash-order/index']) ?>">Смотреть приходные кассовые ордера &raquo;</a></p>
             </div>
         </div>
 

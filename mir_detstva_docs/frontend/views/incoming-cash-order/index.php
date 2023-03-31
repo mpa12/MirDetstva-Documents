@@ -1,24 +1,24 @@
 <?php
 
-use common\models\PackingList;
+use common\models\IncomingCashOrder;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\PackingListSearch $searchModel */
+/** @var frontend\models\IncomingCashOrderSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Товарные накладные';
+$this->title = 'Приходные кассовые ордера';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="packing-list-index">
+<div class="incoming-cash-order-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Создать товарную накладную', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать приходный кассовый ордер', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -31,20 +31,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'consignee:ntext',
-            'payer:ntext',
+            'from_date',
             'number',
-            'date_of_preparation',
+            'customer',
+            'price',
+            'debit',
+            'corresponding_account',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, PackingList $model, $key, $index, $column) {
+                'urlCreator' => function ($action, IncomingCashOrder $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
             [
                 'label' => '',
                 'value' => fn ($model) => \yii\bootstrap5\Html::a(
-                    'Скачать документ', ['/packing-list/download', 'id' => $model->id]
+                    'Скачать документ', ['/incoming-cash-order/download', 'id' => $model->id]
                 ),
                 'format' => 'html'
             ],

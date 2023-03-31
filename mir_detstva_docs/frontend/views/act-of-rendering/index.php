@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var frontend\models\ActOfRenderingSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Акты об оказании услуг';
+$this->title = 'Акты и счета';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="act-of-rendering-index">
@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
+        'pager' => ['class' => \yii\bootstrap5\LinkPager::class],
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [

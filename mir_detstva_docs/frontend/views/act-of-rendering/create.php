@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\ActOfRendering $model */
 
-$this->title = 'Создание акта об оказании услуг';
-$this->params['breadcrumbs'][] = ['label' => 'Акты об оказании услуг', 'url' => ['index']];
+$this->title = 'Создание акта и счета';
+$this->params['breadcrumbs'][] = ['label' => 'Акты и счета', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="act-of-rendering-create">

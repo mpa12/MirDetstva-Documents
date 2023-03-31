@@ -40,6 +40,7 @@ AppAsset::register($this);
         ['label' => 'Расходные кассовые ордера', 'url' => ['/account-cash-warrant/index']],
         ['label' => 'Товарные накладные', 'url' => ['/packing-list/index']],
         ['label' => 'Доверенности', 'url' => ['/power-of-attorney/index']],
+        ['label' => 'Приходные кассовые ордера', 'url' => ['/incoming-cash-order/index']],
     ];
 
     echo Nav::widget([

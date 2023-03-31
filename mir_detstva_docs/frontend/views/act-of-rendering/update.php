@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\ActOfRendering $model */
 
-$this->title = 'Редактирование акта об оказании услуг: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Акты об оказании услуг', 'url' => ['index']];
+$this->title = 'Редактирование акта и счета: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Акты и счета', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>

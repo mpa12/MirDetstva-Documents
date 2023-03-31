@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var common\models\ActOfRendering $model */
+/** @var common\models\IncomingCashOrder $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Акты и счета', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Приходные кассовые ордера', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="act-of-rendering-view">
+<div class="incoming-cash-order-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Вы уверены, что хотите удалить документ?',
+                'confirm' => 'Вы уверены, что хотите удалить этот документ?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,10 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'number',
             'from_date',
+            'number',
             'customer',
             'price',
+            'debit',
+            'corresponding_account',
         ],
     ]) ?>
 
