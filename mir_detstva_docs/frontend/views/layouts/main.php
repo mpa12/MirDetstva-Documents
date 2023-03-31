@@ -35,12 +35,11 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Главная страница', 'url' => ['/site/index']],
         ['label' => 'Акты и счета', 'url' => ['/act-of-rendering/index']],
-        ['label' => 'Расходные кассовые ордера', 'url' => ['/account-cash-warrant/index']],
+        ['label' => 'Расходные', 'url' => ['/account-cash-warrant/index']],
         ['label' => 'Товарные накладные', 'url' => ['/packing-list/index']],
         ['label' => 'Доверенности', 'url' => ['/power-of-attorney/index']],
-        ['label' => 'Приходные кассовые ордера', 'url' => ['/incoming-cash-order/index']],
+        ['label' => 'Приходные', 'url' => ['/incoming-cash-order/index']],
     ];
 
     echo Nav::widget([

@@ -35,8 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'number',
             'customer',
             'price',
-            'debit',
-            'corresponding_account',
+//            'debit',
+//            'corresponding_account',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, IncomingCashOrder $model, $key, $index, $column) {
