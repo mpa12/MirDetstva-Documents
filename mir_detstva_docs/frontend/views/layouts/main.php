@@ -40,6 +40,7 @@ AppAsset::register($this);
         ['label' => 'Товарные накладные', 'url' => ['/packing-list/index']],
         ['label' => 'Доверенности', 'url' => ['/power-of-attorney/index']],
         ['label' => 'Приходные', 'url' => ['/incoming-cash-order/index']],
+        ['label' => 'Счета-фактуры', 'url' => ['/invoice/index']],
     ];
 
     echo Nav::widget([
