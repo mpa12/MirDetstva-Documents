@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var common\models\IncomingCashOrder $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var yii\bootstrap5\ActiveForm $form */
 ?>
 
 <div class="incoming-cash-order-form">
@@ -25,6 +25,10 @@ use yii\widgets\ActiveForm;
     <div class="row mb-3">
         <div class="col"><?= $form->field($model, 'debit')->textInput() ?></div>
         <div class="col"><?= $form->field($model, 'corresponding_account')->textInput(['maxlength' => true]) ?></div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col"><?= $form->field($model, 'base')->textInput(['maxlength' => true]) ?></div>
     </div>
 
     <div class="form-group">

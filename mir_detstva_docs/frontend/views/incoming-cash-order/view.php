@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             'debit',
             'corresponding_account',
+            'base',
         ],
     ]) ?>
 

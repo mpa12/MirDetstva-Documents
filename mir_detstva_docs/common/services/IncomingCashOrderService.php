@@ -21,6 +21,7 @@ class IncomingCashOrderService extends ReportService
         $phpWord->setValue('priceText', $this->model->priceText);
         $phpWord->setValue('priceAsText', $this->model->priceAsText);
         $phpWord->setValue('priceSeparately', $this->model->priceSeparately);
+        $phpWord->setValue('base', $this->model->base);
 
         return $phpWord;
     }

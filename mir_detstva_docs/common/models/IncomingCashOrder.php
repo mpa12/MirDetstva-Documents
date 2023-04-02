@@ -22,6 +22,7 @@ use yii\base\InvalidConfigException;
  * @property string $priceText
  * @property string $priceAsText
  * @property string $priceSeparately
+ * @property string $base
  */
 class IncomingCashOrder extends \yii\db\ActiveRecord
 {
@@ -40,7 +41,7 @@ class IncomingCashOrder extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'from_date'], 'safe'],
-            [['from_date', 'number', 'customer', 'price', 'debit', 'corresponding_account'], 'required'],
+            [['from_date', 'number', 'customer', 'price', 'base'], 'required'],
             [['number'], 'default', 'value' => null],
             [['number'], 'integer'],
             [['price', 'debit'], 'number'],
@@ -62,6 +63,7 @@ class IncomingCashOrder extends \yii\db\ActiveRecord
             'price' => 'Сумма, руб.коп.',
             'debit' => 'Дебет',
             'corresponding_account' => 'Корреспондирующий счет, субсчет',
+            'base' => 'Основание',
         ];
     }
 
