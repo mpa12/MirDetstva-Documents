@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "invoice".
@@ -17,13 +18,14 @@ use yii\base\InvalidConfigException;
  * @property string $address
  * @property string $inn
  * @property string $fromDate
+ * @property string $products
  */
-class Invoice extends \yii\db\ActiveRecord
+class Invoice extends ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'invoice';
     }
@@ -35,7 +37,7 @@ class Invoice extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'from_date'], 'safe'],
-            [['number', 'from_date', 'consignee_and_address', 'buyer', 'address', 'inn'], 'required'],
+            [['number', 'from_date', 'consignee_and_address', 'buyer', 'address', 'inn', 'products'], 'required'],
             [['number'], 'default', 'value' => null],
             [['number'], 'integer'],
             [['consignee_and_address', 'buyer', 'address', 'inn'], 'string', 'max' => 255],
