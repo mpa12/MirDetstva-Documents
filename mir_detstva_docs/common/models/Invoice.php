@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "invoice".
@@ -19,6 +20,7 @@ use yii\db\ActiveRecord;
  * @property string $inn
  * @property string $fromDate
  * @property string $products
+ * @property string $productsTotalSum
  */
 class Invoice extends ActiveRecord
 {
@@ -70,5 +72,13 @@ class Invoice extends ActiveRecord
     public function getFromDate(): string
     {
         return Yii::$app->formatter->asDate($this->from_date, 'dd.MM.yyyy');
+    }
+
+    public function getProductsTotalSum(): float|int
+    {
+        $data = Json::decode($this->products);
+        $data = array_column($data, 'product_sum');
+        $data = array_map(fn($item) => (int)$item, $data);
+        return array_sum($data);
     }
 }
