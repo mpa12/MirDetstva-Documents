@@ -1,11 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var common\models\ActOfRendering $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var yii\bootstrap5\ActiveForm $form */
 ?>
 
 <div class=act-of-rendering-form>
@@ -13,21 +13,17 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class=row>
-        <div class=col>
-            <?= $form->field($model, 'number')->textInput() ?>
-        </div>
-        <div class=col>
-            <?= $form->field($model, 'from_date')->input('date') ?>
-        </div>
+        <div class=col><?= $form->field($model, 'number')->textInput() ?></div>
+        <div class=col><?= $form->field($model, 'from_date')->input('date') ?></div>
     </div>
 
     <div class=row>
-        <div class=col>
-            <?= $form->field($model, 'customer')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class=col>
-            <?= $form->field($model, 'price')->textInput() ?>
-        </div>
+        <div class=col><?= $form->field($model, 'customer')->textInput(['maxlength' => true]) ?></div>
+        <div class=col><?= $form->field($model, 'price')->textInput() ?></div>
+    </div>
+
+    <div class=row>
+        <div class=col><?= $form->field($model, 'product')->textInput(['maxlength' => true]) ?></div>
     </div>
 
     <div class=mt-3>

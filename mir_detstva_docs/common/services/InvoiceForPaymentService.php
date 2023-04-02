@@ -18,6 +18,7 @@ class InvoiceForPaymentService extends ReportService
         $phpWord->setValue('priceText', $this->model->priceText);
         $phpWord->setValue('priceAsText', $this->model->priceAsText);
         $phpWord->setValue('datePlusFour', $this->model->fromDateTextPlusFour);
+        $phpWord->setValue('product', $this->model->product);
 
         return $phpWord;
     }

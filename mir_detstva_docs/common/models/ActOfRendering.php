@@ -19,6 +19,7 @@ use yii\base\InvalidConfigException;
  * @property string $fromDateTextPlusFour
  * @property string $priceText
  * @property string $priceAsText
+ * @property string $product
  */
 class ActOfRendering extends \yii\db\ActiveRecord
 {
@@ -36,12 +37,12 @@ class ActOfRendering extends \yii\db\ActiveRecord
     public function rules(): array
     {
         return [
-            [['number', 'from_date', 'customer', 'price'], 'required'],
+            [['number', 'from_date', 'customer', 'price', 'product'], 'required'],
             [['created_at', 'from_date'], 'safe'],
             [['number'], 'default', 'value' => null],
             [['number'], 'integer'],
             [['price'], 'number'],
-            [['customer'], 'string', 'max' => 255],
+            [['customer', 'product'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,6 +60,7 @@ class ActOfRendering extends \yii\db\ActiveRecord
             'customer' => 'Заказчик',
             'price' => 'Цена',
             'priceText' => 'Цена',
+            'product' => 'Товар',
         ];
     }
 
