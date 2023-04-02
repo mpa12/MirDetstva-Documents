@@ -44,7 +44,7 @@ class AccountCashWarrant extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['number', 'date_of_preparation', 'price', 'customer', 'passport_series', 'passport_number', 'passport_date', 'passport_issued', 'passport_code', 'credit', 'corresponding_account'], 'required'],
+            [['number', 'date_of_preparation', 'price', 'customer', 'passport_series', 'passport_number', 'passport_date', 'passport_issued', 'passport_code'], 'required'],
             [['number'], 'default', 'value' => null],
             [['number'], 'integer'],
             [['created_at', 'date_of_preparation', 'passport_date'], 'safe'],
