@@ -58,8 +58,6 @@ $model_products_count = Json::decode($model->products);
     if (model_products_count > 0) {
         let products_list = <?= $model->products ?>
 
-        console.log(products_list)
-
         for(let product in products_list) {
             addProduct(
                 products_list[product].product_name,
