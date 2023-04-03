@@ -20,6 +20,7 @@ class InvoiceService extends ReportService
         $phpWord->setValue('inn', $this->model->inn);
         $phpWord->setValue('fromDate', $this->model->fromDate);
         $phpWord->setValue('productsTotalSum', $this->model->productsTotalSum);
+        $phpWord->setValue('productsTotalSumText', $this->model->productsTotalSumText);
 
         $data = Json::decode($this->model->products);
 
