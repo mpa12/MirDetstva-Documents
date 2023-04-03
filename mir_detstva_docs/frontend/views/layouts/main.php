@@ -64,7 +64,6 @@ AppAsset::register($this);
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
         <p class="float-start">&copy; Документооборот «Мир детства» <?= date('Y') ?></p>
-        <p class="float-end">Powered by <?= Html::a('@pigolitsyn_m', 'https://vk.com/pigolitsyn_m', ['target' => '_blank']) ?></p>
     </div>
 </footer>
 
